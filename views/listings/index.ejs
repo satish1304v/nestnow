@@ -1,0 +1,32 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="exp">
+        <div class="cover-img">
+            <div class="cover-content">
+                <h3 class="card-title">DISCOVER YOUR NEXT ADVENTURE</h3>
+                <h2>BEST DEALS</h2>
+                <p class="cover-text"> Whether you're seeking hidden gems or iconic destinations, our travel site is your gateway to unforgettable experiences.</p>
+            </div>       
+        </div>
+        <br>
+            <h2>EXPLORE HOTELS</h2>
+            <p>Get upto 30% off with our premium card now!</p>
+        </div>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 list"> 
+        <% for(let listing of allListings){ %>
+        <div class="m-2 p-2 card " style="width: 31%">            
+            <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image" style="height: 20rem"> 
+            <div class="p-2 card-body">
+                <p class="card-text"><b><%= listing.title %></b><br>
+                     &#8377; <%= listing.price.toLocaleString("en-IN")%>/Night 
+                </p>
+                <p><%= listing.description %></p>
+                <a href="/listings/<%= listing._id %>" class="listing-link"><button class="btn btn-dark check-btn">Checkout</button></a>
+            </div> 
+         </div>          
+    <% } %>
+    </div>
+
+</body>
+ 
